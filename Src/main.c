@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Logger.h"
 #include "MY_NRF24.h"
 /* USER CODE END Includes */
 
@@ -70,7 +70,8 @@ static void MX_TIM4_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_TIM8_Init(void);
 /* USER CODE BEGIN PFP */
-
+void setup(void);
+void loop(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -129,12 +130,16 @@ int main(void)
   
   NRF24_enableDynamicPayloads();
   NRF24_enableAckPayload();
+  
+  Log_Init();
+  setup();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    loop();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
