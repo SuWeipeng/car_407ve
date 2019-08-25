@@ -18,6 +18,8 @@ common:
   - Libraries/AP_Math
   - Libraries/AP_Motors
   - Libraries/Logger
+  - Libraries/mavlink
+  - Libraries/mavlink/car
   - Middlewares
   - Middlewares/ST
   - Middlewares/ST/STM32_USB_Device_Library

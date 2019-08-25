@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "nrf_mavlink.h"
 #include "Logger.h"
 #include "MY_NRF24.h"
 /* USER CODE END Includes */
@@ -139,6 +140,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    update_mavlink();
     loop();
     /* USER CODE END WHILE */
 

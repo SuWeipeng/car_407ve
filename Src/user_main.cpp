@@ -1,4 +1,7 @@
+#include "nrf_mavlink.h"
 #include "AC_Base.h"
+
+extern vel_target vel;
 
 Mecanum_4wd *base;
 
@@ -12,9 +15,9 @@ void setup(void)
 
 void loop(void)
 {
-  float x = 0.0f; // max 0.0685f
-  float y = 0.0f; // max 0.0685f
-  float z = 0.0f; // max 0.82f
+  float x = vel.vel_x; // max 0.0685f
+  float y = vel.vel_y; // max 0.0685f
+  float z = vel.rad_z; // max 0.82f
   base->vel2rpm(x, y, z);
 }
 
