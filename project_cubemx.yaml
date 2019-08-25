@@ -13,6 +13,7 @@ common:
   - Drivers/nRF24L01_Driver/Inc
   - Inc
   - Libraries
+  - Libraries/AC_Base
   - Libraries/AC_PID
   - Libraries/AP_Math
   - Libraries/AP_Motors
@@ -33,6 +34,7 @@ common:
     - Drivers/STM32F4xx_HAL_Driver/Src
     - Drivers/nRF24L01_Driver/Src
     Libraries:
+    - Libraries/AC_Base
     - Libraries/AC_PID
     - Libraries/AP_Math
     - Libraries/AP_Motors

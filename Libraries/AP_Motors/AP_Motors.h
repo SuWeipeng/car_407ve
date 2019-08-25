@@ -9,7 +9,7 @@
 #define MOTORS_MAX_RPM         70.0f
 #define MOTORS_REDUCTION_RATIO 48.0f
 #define ENCODER_DELTA_MAX      300.0f
-#define MOTORS_VCP_DEBUG       0
+#define MOTORS_VCP_DEBUG       1
 
 class AC_PID;
 
