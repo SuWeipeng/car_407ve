@@ -378,7 +378,7 @@ USBD_StatusTypeDef USBD_LL_DeInit(USBD_HandleTypeDef *pdev)
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
 
-  hal_status = HAL_PCD_DeInit(pdev->pData);
+  hal_status = HAL_PCD_DeInit((PCD_HandleTypeDef *)pdev->pData);
 
   usb_status =  USBD_Get_USB_Status(hal_status);
   
@@ -395,7 +395,7 @@ USBD_StatusTypeDef USBD_LL_Start(USBD_HandleTypeDef *pdev)
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
  
-  hal_status = HAL_PCD_Start(pdev->pData);
+  hal_status = HAL_PCD_Start((PCD_HandleTypeDef *)pdev->pData);
   
   usb_status =  USBD_Get_USB_Status(hal_status);     
   
@@ -412,7 +412,7 @@ USBD_StatusTypeDef USBD_LL_Stop(USBD_HandleTypeDef *pdev)
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
 
-  hal_status = HAL_PCD_Stop(pdev->pData);
+  hal_status = HAL_PCD_Stop((PCD_HandleTypeDef *)pdev->pData);
   
   usb_status =  USBD_Get_USB_Status(hal_status);
  
@@ -432,7 +432,7 @@ USBD_StatusTypeDef USBD_LL_OpenEP(USBD_HandleTypeDef *pdev, uint8_t ep_addr, uin
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
 
-  hal_status = HAL_PCD_EP_Open(pdev->pData, ep_addr, ep_mps, ep_type);
+  hal_status = HAL_PCD_EP_Open((PCD_HandleTypeDef *)pdev->pData, ep_addr, ep_mps, ep_type);
 
   usb_status =  USBD_Get_USB_Status(hal_status);
   
@@ -450,7 +450,7 @@ USBD_StatusTypeDef USBD_LL_CloseEP(USBD_HandleTypeDef *pdev, uint8_t ep_addr)
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
   
-  hal_status = HAL_PCD_EP_Close(pdev->pData, ep_addr);
+  hal_status = HAL_PCD_EP_Close((PCD_HandleTypeDef *)pdev->pData, ep_addr);
   
   usb_status =  USBD_Get_USB_Status(hal_status);    
  
@@ -468,7 +468,7 @@ USBD_StatusTypeDef USBD_LL_FlushEP(USBD_HandleTypeDef *pdev, uint8_t ep_addr)
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
   
-  hal_status = HAL_PCD_EP_Flush(pdev->pData, ep_addr);
+  hal_status = HAL_PCD_EP_Flush((PCD_HandleTypeDef *)pdev->pData, ep_addr);
   
   usb_status =  USBD_Get_USB_Status(hal_status);   
   
@@ -486,7 +486,7 @@ USBD_StatusTypeDef USBD_LL_StallEP(USBD_HandleTypeDef *pdev, uint8_t ep_addr)
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
   
-  hal_status = HAL_PCD_EP_SetStall(pdev->pData, ep_addr);
+  hal_status = HAL_PCD_EP_SetStall((PCD_HandleTypeDef *)pdev->pData, ep_addr);
 
   usb_status =  USBD_Get_USB_Status(hal_status);
   
@@ -504,7 +504,7 @@ USBD_StatusTypeDef USBD_LL_ClearStallEP(USBD_HandleTypeDef *pdev, uint8_t ep_add
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
   
-  hal_status = HAL_PCD_EP_ClrStall(pdev->pData, ep_addr);
+  hal_status = HAL_PCD_EP_ClrStall((PCD_HandleTypeDef *)pdev->pData, ep_addr);
     
   usb_status =  USBD_Get_USB_Status(hal_status);  
   
@@ -542,7 +542,7 @@ USBD_StatusTypeDef USBD_LL_SetUSBAddress(USBD_HandleTypeDef *pdev, uint8_t dev_a
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
   
-  hal_status = HAL_PCD_SetAddress(pdev->pData, dev_addr);
+  hal_status = HAL_PCD_SetAddress((PCD_HandleTypeDef *)pdev->pData, dev_addr);
   
   usb_status =  USBD_Get_USB_Status(hal_status);
   
@@ -562,7 +562,7 @@ USBD_StatusTypeDef USBD_LL_Transmit(USBD_HandleTypeDef *pdev, uint8_t ep_addr, u
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
 
-  hal_status = HAL_PCD_EP_Transmit(pdev->pData, ep_addr, pbuf, size);
+  hal_status = HAL_PCD_EP_Transmit((PCD_HandleTypeDef *)pdev->pData, ep_addr, pbuf, size);
   
   usb_status =  USBD_Get_USB_Status(hal_status); 
   
@@ -582,7 +582,7 @@ USBD_StatusTypeDef USBD_LL_PrepareReceive(USBD_HandleTypeDef *pdev, uint8_t ep_a
   HAL_StatusTypeDef hal_status = HAL_OK;
   USBD_StatusTypeDef usb_status = USBD_OK;
 
-  hal_status = HAL_PCD_EP_Receive(pdev->pData, ep_addr, pbuf, size);
+  hal_status = HAL_PCD_EP_Receive((PCD_HandleTypeDef *)pdev->pData, ep_addr, pbuf, size);
   
   usb_status =  USBD_Get_USB_Status(hal_status);   
   

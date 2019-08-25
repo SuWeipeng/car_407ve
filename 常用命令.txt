@@ -1,0 +1,14 @@
+初始化
+progen init -p stm32f407ve -tar stm32f407ve
+
+生成工程
+progen generate -f projects.yaml -p stm32f407ve -t iar_arm
+progen generate -f projects.yaml -p stm32f407ve -t uvision5
+progen generate -f projects.yaml -p stm32f407ve -t make_gcc_arm
+
+加入 rt-thread 精简内核
+git submodule add https://github.com/SuWeipeng/rt-thread.git Libraries/rt-thread
+
+加入 Logger
+git submodule add https://github.com/SuWeipeng/Logger.git Libraries/Logger
+
