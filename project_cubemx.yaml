@@ -12,6 +12,8 @@ common:
   - Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
   - Drivers/nRF24L01_Driver/Inc
   - Inc
+  - Libraries
+  - Libraries/Logger
   - Middlewares
   - Middlewares/ST
   - Middlewares/ST/STM32_USB_Device_Library
@@ -26,8 +28,9 @@ common:
   sources:
     Drivers:
     - Drivers/STM32F4xx_HAL_Driver/Src
-
     - Drivers/nRF24L01_Driver/Src
+    Libraries:
+    - Libraries/Logger
     Middlewares:
     - Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
     - Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
