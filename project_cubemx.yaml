@@ -13,6 +13,9 @@ common:
   - Drivers/nRF24L01_Driver/Inc
   - Inc
   - Libraries
+  - Libraries/AC_PID
+  - Libraries/AP_Math
+  - Libraries/AP_Motors
   - Libraries/Logger
   - Middlewares
   - Middlewares/ST
@@ -30,6 +33,9 @@ common:
     - Drivers/STM32F4xx_HAL_Driver/Src
     - Drivers/nRF24L01_Driver/Src
     Libraries:
+    - Libraries/AC_PID
+    - Libraries/AP_Math
+    - Libraries/AP_Motors
     - Libraries/Logger
     Middlewares:
     - Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
