@@ -57,7 +57,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
-
+uint8_t VCPSend(uint8_t* Buf, uint16_t Len);
 /* USER CODE END PFP */
 
 /*
