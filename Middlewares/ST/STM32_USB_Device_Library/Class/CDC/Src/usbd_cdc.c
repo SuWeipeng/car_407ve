@@ -506,7 +506,13 @@ static uint8_t  USBD_CDC_Init (USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   USBD_LL_OpenEP(pdev, CDC_CMD_EP, USBD_EP_TYPE_INTR, CDC_CMD_PACKET_SIZE);
   pdev->ep_in[CDC_CMD_EP & 0xFU].is_used = 1U;
 
+#if defined ( __ICCARM__ ) || defined(__GNUC__)/* IAR Compiler or GCC Compiler*/
+  static uint32_t buff[sizeof (USBD_CDC_HandleTypeDef)];
+  pdev->pClassData = buff;
+#else
   pdev->pClassData = USBD_malloc(sizeof (USBD_CDC_HandleTypeDef));
+#endif /* defined ( __ICCARM__ ) || defined(__GNUC__) */
+
 
   if(pdev->pClassData == NULL)
   {
