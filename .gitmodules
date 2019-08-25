@@ -1,3 +1,6 @@
 [submodule "Libraries/rt-thread"]
 	path = Libraries/rt-thread
 	url = https://github.com/SuWeipeng/rt-thread.git
+[submodule "Libraries/Logger"]
+	path = Libraries/Logger
+	url = https://github.com/SuWeipeng/Logger.git
