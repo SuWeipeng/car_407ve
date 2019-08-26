@@ -1,5 +1,6 @@
 #include "nrf_mavlink.h"
 #include "AC_Base.h"
+#include "Logger.h"
 
 extern vel_target vel;
 
@@ -11,6 +12,9 @@ extern "C" {
 void setup(void)
 {
   base = new Mecanum_4wd();
+  for(uint8_t i=0;i<10;i++){
+    Write_Test(i,i);
+  }
 }
 
 void loop(void)
