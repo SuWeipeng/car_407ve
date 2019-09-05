@@ -6,7 +6,7 @@ extern vel_target vel;
 
 Mecanum_4wd *base;
 
-#if (defined(__GNUC__) || defined(__CC_ARM)) && defined(__cplusplus)
+#if (defined(__GNUC__)) && defined(__cplusplus)
 extern "C" {
 #endif
 void setup(void)
@@ -26,6 +26,6 @@ void loop(void)
   base->vel2rpm(vel_x, vel_y, rad_z);
 }
 
-#if (defined(__GNUC__) || defined(__CC_ARM)) && defined(__cplusplus)
+#if (defined(__GNUC__)) && defined(__cplusplus)
 }
 #endif
