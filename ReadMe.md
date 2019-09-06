@@ -8,8 +8,8 @@
 2. 【无线通信】使用 Mavlink 通信协议；
 3. 【控制算法】使用 ardupilot 的 AC_PID 库算法对每个轮进行 PID 控制；
 4. 【运动算法】按 Mecanum 轮运动学对 4 个麦轮进行动力分配；
-5. 【TO DO】使用 rt-thread 实时操作系统进行线程调度；
-6. 【TO DO】使用 ardupilot 日志形式记录软件运行的实时数据。
+5. 【RTOS系统】使用 rt-thread 实时操作系统进行线程调度；
+6. 【LOG 日志】使用 ardupilot 日志形式记录软件运行的实时数据。
 
 教程推文
 ---
