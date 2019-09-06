@@ -71,10 +71,12 @@ float AC_PID::update_all(float target, float measurement, bool limit)
         float error_last = _error;
         _target += get_filt_T_alpha() * (target - _target);
         _error += get_filt_E_alpha() * ((_target - measurement) - _error);
+        _pid_info.ER   = _target - measurement;
 
         // calculate and filter derivative
         if (_dt > 0.0f) {
             float derivative = (_error - error_last) / _dt;
+            _pid_info.DR = (derivative * _kd);
             _derivative += get_filt_D_alpha() * (derivative - _derivative);
         }
     }
@@ -85,6 +87,7 @@ float AC_PID::update_all(float target, float measurement, bool limit)
     float P_out = (_error * _kp);
     float D_out = (_derivative * _kd);
 
+    _pid_info.TR = target;
     _pid_info.target = _target;
     _pid_info.actual = measurement;
     _pid_info.error = _error;

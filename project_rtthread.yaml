@@ -1,0 +1,212 @@
+common:
+  macros:
+  - USE_RTTHREAD
+  includes:
+  - Drivers
+  - Drivers/CMSIS
+  - Drivers/CMSIS/Device
+  - Drivers/CMSIS/Device/ST
+  - Drivers/CMSIS/Device/ST/STM32F4xx
+  - Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  - Drivers/CMSIS/Include
+  - Drivers/STM32F4xx_HAL_Driver
+  - Drivers/STM32F4xx_HAL_Driver/Inc
+  - Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
+  - Drivers/ABPhase_Encoder_Driver/Inc
+  - Drivers/nRF24L01_Driver/Inc
+  - Inc
+  - Libraries
+  - Libraries/AC_PID
+  - Libraries/AP_Motors
+  - Libraries/rt-thread
+  - Libraries/rt-thread/board-F407xE
+  - Libraries/rt-thread/components
+  - Libraries/rt-thread/components/cplusplus
+  - Libraries/rt-thread/components/drivers
+  - Libraries/rt-thread/components/drivers/include
+  - Libraries/rt-thread/components/drivers/include/drivers/pin.h
+  - Libraries/rt-thread/components/drivers/include/drivers/serial.h
+  - Libraries/rt-thread/components/finsh
+  - Libraries/rt-thread/HAL_Drivers
+  - Libraries/rt-thread/HAL_Drivers/config
+  - Libraries/rt-thread/HAL_Drivers/config/f4
+  - Libraries/rt-thread/include
+  - Libraries/rt-thread/include/libc
+  - Libraries/Logger
+  - Libraries/mavlink
+  - Libraries/mavlink/car
+  - Middlewares
+  - Middlewares/ST
+  - Middlewares/ST/STM32_USB_Device_Library
+  - Middlewares/ST/STM32_USB_Device_Library/Class
+  - Middlewares/ST/STM32_USB_Device_Library/Class/CDC
+  - Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc
+  - Middlewares/ST/STM32_USB_Device_Library/Core
+  - Middlewares/ST/STM32_USB_Device_Library/Core/Inc
+  - Middlewares/Third_Party
+  - Middlewares/Third_Party/FatFs
+  - Middlewares/Third_Party/FatFs/src
+  sources:
+    Drivers:
+    - Drivers/STM32F4xx_HAL_Driver/Src
+    - Drivers/ABPhase_Encoder_Driver/Src
+    - Drivers/nRF24L01_Driver/Src
+    RTThread:
+    - Libraries/rt-thread/board-F407xE
+    - Libraries/rt-thread/components/cplusplus/MutexCPP.cpp
+    - Libraries/rt-thread/components/cplusplus/SemaphoreCPP.cpp
+    - Libraries/rt-thread/components/cplusplus/ThreadCPP.cpp
+    - Libraries/rt-thread/components/cplusplus/crt.cpp
+    - Libraries/rt-thread/components/cplusplus/crt_init.c
+    - Libraries/rt-thread/components/drivers/misc/pin.c
+    - Libraries/rt-thread/components/drivers/serial/serial.c
+    - Libraries/rt-thread/components/drivers/src/completion.c
+    - Libraries/rt-thread/components/drivers/src/dataqueue.c
+    - Libraries/rt-thread/components/finsh/cmd.c
+    - Libraries/rt-thread/components/finsh/msh.c
+    - Libraries/rt-thread/components/finsh/msh_cmd.c
+    - Libraries/rt-thread/components/finsh/msh_file.c
+    - Libraries/rt-thread/components/finsh/shell.c
+    - Libraries/rt-thread/components/finsh/symbol.c
+    - Libraries/rt-thread/HAL_Drivers
+    - Libraries/rt-thread/libcpu/arm/cortex-m4/cpuport.c
+    - Libraries/rt-thread/src
+    Libraries:
+    - Libraries/AC_PID
+    - Libraries/AP_Motors
+    - Libraries/Logger
+    Middlewares:
+    - Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
+    - Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
+    - Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
+    - Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
+    - Middlewares/Third_Party/FatFs/src/diskio.c
+    - Middlewares/Third_Party/FatFs/src/ff.c
+    - Middlewares/Third_Party/FatFs/src/ff_gen_drv.c
+    - Middlewares/Third_Party/FatFs/src/option/cc936.c
+    - Middlewares/Third_Party/FatFs/src/option/syscall.c
+    Src:
+    - Src-rtt
+  target:
+  - stm32f407ve
+tool_specific:
+  uvision5:
+    includes:
+    - Libraries/AC_Base_mdk5
+    - Libraries/AP_Math_mdk5
+    - Libraries/rt-thread/components/libc
+    - Libraries/rt-thread/components/libc/compilers
+    - Libraries/rt-thread/components/libc/compilers/armlibc
+    macros:
+    - USE_HAL_DRIVER
+    - STM32F407xx
+    - __ARMCOMPILER_LIBCXX
+    misc:
+      cxx_flags:
+      - -Otime
+    sources:
+      MDK5:
+      - Libraries/AC_Base_mdk5
+      - Libraries/AP_Math_mdk5
+      StartUp:
+      - IDE/MDK5
+      libc:
+      - Libraries/rt-thread/components/libc/compilers/armlibc/libc.c
+      - Libraries/rt-thread/components/libc/compilers/armlibc/mem_std.c
+      - Libraries/rt-thread/components/libc/compilers/armlibc/stubs.c
+      - Libraries/rt-thread/components/libc/compilers/common/time.c
+      RTThread:
+      - Libraries/rt-thread/libcpu/arm/cortex-m4/context_rvds.S
+    linker_file:
+    - IDE/MDK5/car_407ve.sct
+  iar_arm:
+    includes:
+    - Libraries/AC_Base
+    - Libraries/AP_Math
+    - Libraries/rt-thread/components/libc
+    - Libraries/rt-thread/components/libc/compilers
+    - Libraries/rt-thread/components/libc/compilers/armlibc
+    macros:
+    - USE_HAL_DRIVER
+    - STM32F407xx    
+    sources:
+      IAR:
+      - Libraries/AC_Base
+      - Libraries/AP_Math
+      StartUp:
+      - IDE/IAR
+      dlib:
+      - Libraries/rt-thread/components/libc/compilers/dlib/environ.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/rmtx.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/stdio.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/syscall_close.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/syscall_lseek.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/syscall_mem.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/syscall_open.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/syscall_read.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/syscall_remove.c
+      - Libraries/rt-thread/components/libc/compilers/dlib/syscall_write.c
+      libc:
+      - Libraries/rt-thread/components/libc/compilers/armlibc/libc.c
+      - Libraries/rt-thread/components/libc/compilers/common/time.c
+      RTThread:
+      - Libraries/rt-thread/libcpu/arm/cortex-m4/context_iar.S
+    linker_file:
+    - IDE/IAR/stm32f407xx_flash.icf
+  make_gcc_arm:
+    includes:
+    - Libraries/AC_Base
+    - Libraries/AP_Math
+    - Libraries/rt-thread/components/libc
+    - Libraries/rt-thread/components/libc/compilers
+    - Libraries/rt-thread/components/libc/compilers/newlib
+    macros:
+    - USE_HAL_DRIVER
+    - STM32F407xx    
+    sources:
+      GCC:
+      - Libraries/AC_Base
+      - Libraries/AP_Math
+      StartUp:
+      - IDE/GCC/startup_stm32f407xx-rtt.S
+      libc:
+      - Libraries/rt-thread/components/libc/compilers/newlib/libc.c
+      - Libraries/rt-thread/components/libc/compilers/newlib/libc_syms.c
+      - Libraries/rt-thread/components/libc/compilers/newlib/stdio.c
+      - Libraries/rt-thread/components/libc/compilers/newlib/syscalls.c
+      - Libraries/rt-thread/components/libc/compilers/newlib/time.c
+      RTThread:
+      - Libraries/rt-thread/libcpu/arm/cortex-m4/context_gcc.S
+    linker_file:
+    - IDE/GCC/link.lds
+    misc:
+      standard_libraries:
+      - m
+      - gcc
+      - c
+      - nosys
+      - stdc++
+      common_flags:
+      - -O0
+      - -g
+      - -ggdb
+      - -Wall
+      - -fno-strict-aliasing
+      - -ffunction-sections
+      - -fdata-sections
+      - -fno-exceptions
+      - -fno-delete-null-pointer-checks
+      - -fmessage-length=0
+      - -fno-builtin
+      - -mthumb
+      - -gdwarf-2
+      ld_flags:
+      - -specs=nano.specs
+      - -Wl,--gc-sections
+      - -u _printf_float
+      - -fno-exceptions
+      cxx_flags:
+      - -fno-rtti
+      - -std=c++11
+      c_flags:
+      - -std=c99

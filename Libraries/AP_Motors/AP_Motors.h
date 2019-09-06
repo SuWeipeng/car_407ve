@@ -8,8 +8,8 @@
 #define MOTORS_ENCODER_LINE    30.0f
 #define MOTORS_MAX_RPM         130.0f
 #define MOTORS_REDUCTION_RATIO 48.0f
-#define ENCODER_DELTA_MAX      300.0f
-#define MOTORS_VCP_DEBUG       0
+#define ENCODER_DELTA_MAX      5000.0f
+#define MOTORS_VCP_DEBUG       1
 
 class AC_PID;
 
@@ -27,8 +27,14 @@ public:
             AC_PID*            pid);
   ~AP_Motors(){}
   
-  void set_rpm(float rpm);
-  
+  void     set_rpm(float rpm);
+  AC_PID*  get_pid()        { return _pid; }
+  int32_t  get_delta_tick() { return _delta_tick; }
+  int32_t  get_tick()       { return _tick; }
+  double   get_delta_min()  { return _delta_min; }
+  int16_t  get_pwm()        { return _pwm; }
+  uint16_t get_delta_ms()   { return _delta_ms; }
+
 private:
   /* encoder */
   TIM_HandleTypeDef* _enc_tim;
@@ -38,6 +44,9 @@ private:
   uint32_t           _last_millisecond;
   float              _rpm;
   float              _rpm_last;
+  int32_t            _delta_tick;
+  double             _delta_min;
+  uint16_t           _delta_ms;
   
   /* L298N */
   TIM_HandleTypeDef* _pwm_tim;
@@ -46,12 +55,13 @@ private:
   GPIO_TypeDef*      _dir_port;
   uint16_t           _pin_1;
   uint16_t           _pin_2;
+  int16_t            _pwm;
   
   /* pid control */
   AC_PID*            _pid;
   
   void     _spin(int16_t pwm);
   float    _read_rpm();
-  int16_t  _get_delta_tick();
+  int32_t  _get_delta_tick();
 };
 #endif /* __AP_MOTORS_H__ */

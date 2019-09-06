@@ -14,16 +14,21 @@ AP_Motors::AP_Motors(TIM_HandleTypeDef* enc_tim,  // encoder timer
                      AC_PID*            pid)
 : _enc_tim(enc_tim)
 , _enc_dir(enc_dir)
+, _tick(0)
 , _tick_last(0)
 , _last_millisecond(0)
 , _rpm(0)
 , _rpm_last(0)
+, _delta_tick(0)
+, _delta_min(0.0)
+, _delta_ms(0)
 , _pwm_tim(pwm_tim)
 , _channel(channel)
 , _pwm_max(pwm_max)
 , _dir_port(dir_port)
 , _pin_1(pin_1)
 , _pin_2(pin_2)
+, _pwm(0)
 , _pid(pid)
 {
   /* clear PWM */
@@ -39,15 +44,13 @@ AP_Motors::AP_Motors(TIM_HandleTypeDef* enc_tim,  // encoder timer
 
 void AP_Motors::set_rpm(float rpm)
 {
-  int16_t _pwm;
-  
   if((_rpm_last>0 && rpm<0) || (_rpm_last<0 && rpm>0) || is_zero(rpm)){
     _pid->reset_I();
     _rpm_last = rpm;
   }
 
   _rpm = _read_rpm() / MOTORS_REDUCTION_RATIO;
-  _pwm = constrain_int16((int16_t)(_pid->update_all(rpm, _rpm, false)+0.5f), -_pwm_max, _pwm_max);
+  _pwm = constrain_int16((int16_t)(_pid->update_all(rpm, _rpm, false)+0.5f)+(int16_t)(_pid->get_ff()+0.5f), -_pwm_max, _pwm_max);
   
   /* The motor does not rotate when pwm lower than MOTORS_PWM_MIN*/
   if(abs(_pwm) < MOTORS_PWM_MIN) _pwm = 0;
@@ -86,15 +89,15 @@ float AP_Motors::_read_rpm()
 {
   uint32_t cur_millisecond;
   float    delta_t_sec;
-  double   delta_min, rpm_cur;
-  int16_t  delta_tick;
+  double   rpm_cur;
   
-  delta_tick = _get_delta_tick();
+  _delta_tick     = _get_delta_tick();
   cur_millisecond = HAL_GetTick();
-  delta_t_sec = (cur_millisecond - _last_millisecond) / 1000.0f;
-  delta_min   = (cur_millisecond - _last_millisecond) / 60000.0;
+  _delta_ms       = cur_millisecond - _last_millisecond;
+  delta_t_sec     = _delta_ms / 1000.0f;
+  _delta_min      = _delta_ms / 60000.0;
 
-  rpm_cur = (delta_tick / MOTORS_ENCODER_LINE) / delta_min;
+  rpm_cur = (_delta_tick / MOTORS_ENCODER_LINE) / _delta_min;
   
   _pid->set_dt(delta_t_sec);
                    
@@ -103,7 +106,7 @@ float AP_Motors::_read_rpm()
   return (float)rpm_cur;
 }
 
-int16_t AP_Motors::_get_delta_tick()
+int32_t AP_Motors::_get_delta_tick()
 {
   int32_t delta_tick;
  

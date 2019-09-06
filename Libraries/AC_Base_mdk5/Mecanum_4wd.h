@@ -37,14 +37,14 @@ public:
 #endif
 
 private:
-  AP_Motors _motor1_fr{&htim3, 1, GPIOC, GPIO_PIN_1, GPIO_PIN_3, &htim5, TIM_CHANNEL_4, 99, &_pid_1};
-  AP_Motors _motor2_fl{&htim1, 1, GPIOE, GPIO_PIN_2, GPIO_PIN_4, &htim5, TIM_CHANNEL_1, 99, &_pid_2};
-  AP_Motors _motor3_bl{&htim4, 1, GPIOE, GPIO_PIN_3, GPIO_PIN_5, &htim5, TIM_CHANNEL_2, 99, &_pid_3};
-  AP_Motors _motor4_br{&htim8, 1, GPIOC, GPIO_PIN_0, GPIO_PIN_2, &htim5, TIM_CHANNEL_3, 99, &_pid_4};
-  AC_PID    _pid_1{1.2f, 5.0f, 0.3f, 0.1f, 200.0f, 1.0f, 1.0f, 0.85f, 0.02f};
-  AC_PID    _pid_2{1.2f, 5.0f, 0.3f, 0.1f, 200.0f, 1.0f, 1.0f, 0.85f, 0.02f};
-  AC_PID    _pid_3{1.2f, 5.0f, 0.3f, 0.1f, 200.0f, 1.0f, 1.0f, 0.85f, 0.02f};
-  AC_PID    _pid_4{1.2f, 5.0f, 0.3f, 0.1f, 200.0f, 1.0f, 1.0f, 0.85f, 0.02f};
+  AP_Motors _motor1_fr;
+  AP_Motors _motor2_fl;
+  AP_Motors _motor3_bl;
+  AP_Motors _motor4_br;
+  AC_PID    _pid_1;
+  AC_PID    _pid_2;
+  AC_PID    _pid_3;
+  AC_PID    _pid_4;
   
   float     _motor1_fr_rpm, _motor2_fl_rpm, _motor3_bl_rpm, _motor4_br_rpm;
   

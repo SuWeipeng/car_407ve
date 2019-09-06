@@ -28,6 +28,10 @@
 #include "nrf_mavlink.h"
 #include "Logger.h"
 #include "MY_NRF24.h"
+#if defined(USE_RTTHREAD)
+#include "rtt_interface.h"
+#include <entry.h>
+#endif
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -138,6 +142,11 @@ int main(void)
   
   Log_Init();
   setup();
+#if defined(USE_RTTHREAD)
+  rt_pin_mode(LED_PIN, PIN_MODE_OUTPUT);
+  RTT_CREATE(led,led_thread_entry,RT_NULL,1024,RT_THREAD_PRIORITY_MAX-2,20);
+  RTT_CREATE(log,log_thread_entry,RT_NULL,2048,RT_THREAD_PRIORITY_MAX-3,20);
+#endif
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -149,6 +158,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    rt_thread_delay(1);
   }
   /* USER CODE END 3 */
 }

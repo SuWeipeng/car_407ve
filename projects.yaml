@@ -1,6 +1,8 @@
 projects:
   stm32f407ve:
   - project_cubemx.yaml
+  stm32f407ve-rtt:
+  - project_rtthread.yaml
 settings:
   export_dir:
   - generate_project
