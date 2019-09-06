@@ -11,6 +11,15 @@
 5. 【RTOS系统】使用 rt-thread 实时操作系统进行线程调度；
 6. 【LOG 日志】使用 ardupilot 日志形式记录软件运行的实时数据。
 
+怎样编译
+---
+> MDK5、IAR、GCC 三平台通用代码。<br>
+> Sugar 只维护配置文件，不维护工程。<br>
+> 因为：不同平台的工程可按配置自动生成，方法如下：
+
+1. [一招通吃MDK5、IAR、GCC](https://mp.weixin.qq.com/s/aPUbSAndjvs4CaPj3CFsJg)
+2. [【升级】一招通吃MDK5、IAR、GCC](https://mp.weixin.qq.com/s/iVmaQ3S4vcitbJ8iXZyArw)
+
 教程推文
 ---
 > 欢迎关注微信公众号：MultiMCU EDU<br>
