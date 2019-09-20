@@ -9,9 +9,7 @@ extern "C"
 void log_thread_entry(void* parameter)
 {
   while(1) {
-    rt_enter_critical();
     base->log_write_base();
-    rt_exit_critical();
     rt_thread_delay(1);
   }
 }
