@@ -10,9 +10,9 @@
 4. 【运动算法】按 Mecanum 轮运动学对 4 个麦轮进行动力分配；
 5. 【RTOS系统】使用 rt-thread 实时操作系统进行线程调度；
 6. 【LOG 日志】使用 ardupilot 日志形式记录软件运行的实时数据；       
-7. 【文件系统】使用 CubeMX 内的第三方FatFS文件系统，使用 RT-Thread 虚拟文件系统的代码[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)；       
-8. 【虚拟串口】使用 CubeMX 内的第三方虚拟串口代码，使用 RT-Thread 虚拟串口的代码[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)；
-9. 【nRF24L01】可以在 STM32 全系列单片机上使用的**裸机驱动**，使用 RT-Thread 软件包驱动的代码[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)。
+7. 【文件系统】使用 CubeMX 内的第三方FatFS文件系统，使用 RT-Thread 虚拟文件系统的代码**[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)**；       
+8. 【虚拟串口】使用 CubeMX 内的第三方虚拟串口代码，使用 RT-Thread 虚拟串口的代码**[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)**；
+9. 【nRF24L01】可以在 STM32 全系列单片机上使用的**裸机驱动**，使用 RT-Thread 软件包驱动的代码**[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)**。
 
 怎样编译
 ---
