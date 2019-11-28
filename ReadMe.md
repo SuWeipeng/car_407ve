@@ -9,7 +9,10 @@
 3. 【控制算法】使用 ardupilot 的 AC_PID 库算法对每个轮进行 PID 控制；
 4. 【运动算法】按 Mecanum 轮运动学对 4 个麦轮进行动力分配；
 5. 【RTOS系统】使用 rt-thread 实时操作系统进行线程调度；
-6. 【LOG 日志】使用 ardupilot 日志形式记录软件运行的实时数据。
+6. 【LOG 日志】使用 ardupilot 日志形式记录软件运行的实时数据；       
+7. 【文件系统】使用 CubeMX 内的第三方FatFS文件系统，使用 RT-Thread 虚拟文件系统的代码[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)；       
+8. 【虚拟串口】使用 CubeMX 内的第三方虚拟串口代码，使用 RT-Thread 虚拟串口的代码[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)；
+9. 【nRF24L01】可以在 STM32 全系列单片机上使用的**裸机驱动**，使用 RT-Thread 软件包驱动的代码[点此链接](https://github.com/SuWeipeng/car_407ve_rtt)。
 
 怎样编译
 ---
@@ -19,6 +22,15 @@
 
 1. [一招通吃MDK5、IAR、GCC](https://mp.weixin.qq.com/s/aPUbSAndjvs4CaPj3CFsJg)
 2. [【升级】一招通吃MDK5、IAR、GCC](https://mp.weixin.qq.com/s/iVmaQ3S4vcitbJ8iXZyArw)
+
+一、MDK5 下编译设置       
+![](https://github.com/SuWeipeng/img/raw/master/12_RT-Thread/mdk5%20%E8%AE%BE%E7%BD%AE.jpg)
+
+二、IAR 下的设置（以使用 JLink 调试为例）
+![](https://github.com/SuWeipeng/img/raw/master/12_RT-Thread/1_IAR%20%E9%80%89%E7%BC%96%E8%AF%91%E6%96%B9%E5%BC%8F.jpg)
+![](https://github.com/SuWeipeng/img/raw/master/12_RT-Thread/2_IAR%20JLink%20%E8%AE%BE%E7%BD%AE.jpg)
+![](https://github.com/SuWeipeng/img/raw/master/12_RT-Thread/3_IAR%20JLink%20%E8%AE%BE%E7%BD%AE.jpg)
+![](https://github.com/SuWeipeng/img/raw/master/12_RT-Thread/4_IAR%20JLink%20%E8%AE%BE%E7%BD%AE.jpg)
 
 教程推文
 ---
