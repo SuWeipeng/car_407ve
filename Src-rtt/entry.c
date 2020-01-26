@@ -158,7 +158,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    rt_thread_delay(1);
+    rt_thread_delay(50);
   }
   /* USER CODE END 3 */
 }
