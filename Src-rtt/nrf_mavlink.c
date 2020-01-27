@@ -1,3 +1,4 @@
+#include <entry.h>
 #include "nrf_mavlink.h"
 #include "MY_NRF24.h"
 #include "usb_device.h"
@@ -60,5 +61,6 @@ void update_mavlink( void *parameter )
         }
       }
     }
+    rt_thread_delay(1);
   }
 }
