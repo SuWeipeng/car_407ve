@@ -30,7 +30,7 @@ void loop(void* parameter)
     float rad_z = vel.rad_z;  // z max 0.7f
 
     base->vel2rpm(vel_x, vel_y, rad_z);
-    rt_thread_delay(50);
+    rt_thread_delay(30);
   }
 }
 
