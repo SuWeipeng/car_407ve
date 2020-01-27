@@ -19,8 +19,8 @@ using namespace rtthread;
 #define D                   0.3f
 #define FF                  0.1f
 #define IMAX                200.0f
-#define FLTT                1.0f
-#define FLTE                1.0f
+#define FLTT                0.0f
+#define FLTE                0.0f
 #define FLTD                0.85f
 #define DT                  0.02f
 #elif BASE_TYPE == 1
@@ -31,8 +31,8 @@ using namespace rtthread;
 #define D                   0.3f
 #define FF                  0.1f
 #define IMAX                200.0f
-#define FLTT                1.0f
-#define FLTE                1.0f
+#define FLTT                0.0f
+#define FLTE                0.0f
 #define FLTD                0.85f
 #define DT                  0.02f
 #endif
