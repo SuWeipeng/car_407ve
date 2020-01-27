@@ -12,5 +12,6 @@ void led_thread_entry(void* parameter);
 void log_thread_entry(void* parameter);
 
 int loop_start(void);
+int mavlink_start(void);
 
 #endif

@@ -20,6 +20,4 @@ typedef struct vel_target {
   float rad_z; // rad/s
 } vel_target;
 
-void update_mavlink(void);
-
 #endif
