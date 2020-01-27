@@ -21,13 +21,17 @@ void setup(void)
   }
 }
 
-void loop(void)
+void loop(void* parameter)
 {
-  float vel_x = vel.vel_x;  // x max 0.104f
-  float vel_y = vel.vel_y;  // y max 0.104f
-  float rad_z = vel.rad_z;  // z max 0.7f
-  
-  base->vel2rpm(vel_x, vel_y, rad_z);
+  while(1)
+  {
+    float vel_x = vel.vel_x;  // x max 0.104f
+    float vel_y = vel.vel_y;  // y max 0.104f
+    float rad_z = vel.rad_z;  // z max 0.7f
+
+    base->vel2rpm(vel_x, vel_y, rad_z);
+    rt_thread_delay(50);
+  }
 }
 
 } // extern "C"

@@ -79,7 +79,6 @@ static void MX_TIM8_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 void setup(void);
-void loop(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -146,6 +145,7 @@ int main(void)
   rt_pin_mode(LED_PIN, PIN_MODE_OUTPUT);
   RTT_CREATE(led,led_thread_entry,RT_NULL,1024,RT_THREAD_PRIORITY_MAX-2,20);
   RTT_CREATE(log,log_thread_entry,RT_NULL,2048,RT_THREAD_PRIORITY_MAX-3,20);
+  loop_start();
 #endif
   /* USER CODE END 2 */
 
@@ -154,11 +154,10 @@ int main(void)
   while (1)
   {
     update_mavlink();
-    loop();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    rt_thread_delay(50);
+    rt_thread_delay(1);
   }
   /* USER CODE END 3 */
 }

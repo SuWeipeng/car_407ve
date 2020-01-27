@@ -11,4 +11,6 @@ extern rt_thread_t log_thread;
 void led_thread_entry(void* parameter);
 void log_thread_entry(void* parameter);
 
+int loop_start(void);
+
 #endif
