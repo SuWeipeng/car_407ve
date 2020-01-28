@@ -13,7 +13,7 @@ using namespace rtthread;
 #define BASE_TYPE           0 // 0-Small, 1-Middle
 #if BASE_TYPE == 0
 #define HALF_BASE_LENGTH_M  0.075f
-#define HALF_BASE_WIDTH_M   0.070f
+#define HALF_BASE_WIDTH_M   0.080f
 #define P                   0.7f
 #define I                   3.9f
 #define D                   0.0f
