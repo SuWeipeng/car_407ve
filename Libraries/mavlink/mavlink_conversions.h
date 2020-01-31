@@ -12,7 +12,7 @@
 #include <math.h>
 
 #ifndef M_PI_2
-    #define M_PI_2 ((float)asin(1))
+    #define M_PI_2 ((float)asin(1.0f))
 #endif
 
 /**
