@@ -4,3 +4,6 @@
 [submodule "Libraries/Logger"]
 	path = Libraries/Logger
 	url = https://github.com/SuWeipeng/Logger.git
+[submodule "Libraries/mavlink"]
+	path = Libraries/mavlink
+	url = https://github.com/SuWeipeng/car_mavlink.git
