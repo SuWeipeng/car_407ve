@@ -1,7 +1,7 @@
 #pragma once
 // MESSAGE TEST PACKING
 
-#define MAVLINK_MSG_ID_TEST 1
+#define MAVLINK_MSG_ID_TEST 9
 
 MAVPACKED(
 typedef struct __mavlink_test_t {
@@ -12,17 +12,17 @@ typedef struct __mavlink_test_t {
 
 #define MAVLINK_MSG_ID_TEST_LEN 7
 #define MAVLINK_MSG_ID_TEST_MIN_LEN 7
-#define MAVLINK_MSG_ID_1_LEN 7
-#define MAVLINK_MSG_ID_1_MIN_LEN 7
+#define MAVLINK_MSG_ID_9_LEN 7
+#define MAVLINK_MSG_ID_9_MIN_LEN 7
 
 #define MAVLINK_MSG_ID_TEST_CRC 42
-#define MAVLINK_MSG_ID_1_CRC 42
+#define MAVLINK_MSG_ID_9_CRC 42
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_TEST { \
-    1, \
+    9, \
     "TEST", \
     3, \
     {  { "data8", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_test_t, data8) }, \

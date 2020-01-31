@@ -1,7 +1,7 @@
 #pragma once
 // MESSAGE SIMPLE PACKING
 
-#define MAVLINK_MSG_ID_SIMPLE 0
+#define MAVLINK_MSG_ID_SIMPLE 8
 
 MAVPACKED(
 typedef struct __mavlink_simple_t {
@@ -10,17 +10,17 @@ typedef struct __mavlink_simple_t {
 
 #define MAVLINK_MSG_ID_SIMPLE_LEN 1
 #define MAVLINK_MSG_ID_SIMPLE_MIN_LEN 1
-#define MAVLINK_MSG_ID_0_LEN 1
-#define MAVLINK_MSG_ID_0_MIN_LEN 1
+#define MAVLINK_MSG_ID_8_LEN 1
+#define MAVLINK_MSG_ID_8_MIN_LEN 1
 
 #define MAVLINK_MSG_ID_SIMPLE_CRC 221
-#define MAVLINK_MSG_ID_0_CRC 221
+#define MAVLINK_MSG_ID_8_CRC 221
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_SIMPLE { \
-    0, \
+    8, \
     "SIMPLE", \
     1, \
     {  { "data", NULL, MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_simple_t, data) }, \
