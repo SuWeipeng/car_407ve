@@ -2,9 +2,12 @@
 #include "nrf_mavlink.h"
 #include "MY_NRF24.h"
 #include "usb_device.h"
+#include "stm32f4xx_hal.h"
 
 #define _ABS_(x) (((x)>0) ? x : -x)
 #define NRF_VCP_DEBUG 0
+
+extern UART_HandleTypeDef huart1;
 
 ap_t       mav_data;
 vel_target vel;
@@ -55,6 +58,10 @@ void update_mavlink( void *parameter )
               sprintf( TxBuf, "vel_x:%.2f, vel_y:%.2f, rad_z:%.2f\r\n", vel.vel_x, vel.vel_y, vel.rad_z );
               VCPSend( ( uint8_t * )TxBuf, strlen( TxBuf ) );
               #endif
+              
+							len = mavlink_msg_to_send_buffer( myTxData, &msg_receive );
+              HAL_UART_Transmit(&huart1,myTxData,len,10);
+              
               break;
             }
           }
