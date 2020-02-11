@@ -10,7 +10,7 @@
 using namespace rtthread;
 #endif
 
-#define BASE_TYPE           1 // 0-Small, 1-Middle
+#define BASE_TYPE           2 // 0-Small, 1-Middle, 2-Test
 #if BASE_TYPE == 0
 #define HALF_BASE_LENGTH_M  0.075f
 #define HALF_BASE_WIDTH_M   0.080f
@@ -26,10 +26,22 @@ using namespace rtthread;
 #elif BASE_TYPE == 1
 #define HALF_BASE_LENGTH_M  0.122f
 #define HALF_BASE_WIDTH_M   0.120f
-#define P                   1.2f
+#define P                   0.3f
 #define I                   5.0f
-#define D                   0.3f
-#define FF                  0.1f
+#define D                   0.0f
+#define FF                  0.0f
+#define IMAX                200.0f
+#define FLTT                0.0f
+#define FLTE                0.0f
+#define FLTD                0.85f
+#define DT                  0.02f
+#elif BASE_TYPE == 2
+#define HALF_BASE_LENGTH_M  0.122f
+#define HALF_BASE_WIDTH_M   0.120f
+#define P                   0.05f
+#define I                   5.0f
+#define D                   0.0f
+#define FF                  0.0f
 #define IMAX                200.0f
 #define FLTT                0.0f
 #define FLTE                0.0f
