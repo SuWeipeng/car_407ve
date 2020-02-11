@@ -8,6 +8,7 @@ void update_mavlink(void* parameter);
 int mavlink_start(void)
 {
   RTT_CREATE(mav,update_mavlink,RT_NULL,2048,6,20);
+  return 0;
 }
 
 #endif
