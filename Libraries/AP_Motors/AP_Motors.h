@@ -52,6 +52,7 @@ public:
   double   get_delta_min()  { return _delta_min; }
   int16_t  get_pwm()        { return _pwm; }
   uint16_t get_delta_ms()   { return _delta_ms; }
+  float    get_rpm()        { return _rpm; }
 
 private:
   /* encoder */

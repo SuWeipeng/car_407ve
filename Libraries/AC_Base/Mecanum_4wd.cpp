@@ -2,6 +2,12 @@
 #include "Mecanum_4wd.h"
 #include "usb_device.h"
 #include "Logger.h"
+#if PWM_RPM_TEST_ENABLE == 1
+#include <stm32f4xx_hal.h>
+#include "mavlink.h"
+
+extern UART_HandleTypeDef huart1;
+#endif
 
 typedef VectorN<float,3> Vector3f;
 
@@ -61,6 +67,9 @@ void Mecanum_4wd::run()
 #if defined(USE_RTTHREAD)
   _log_sem.release();
 #endif
+#if PWM_RPM_TEST_ENABLE == 1
+  _pwm_rpm_test();
+#endif
 }
 
 void Mecanum_4wd::stop()
@@ -91,5 +100,18 @@ void Mecanum_4wd::log_write_base()
   Write_PWM(_motor1_fr.get_pwm(), _motor2_fl.get_pwm(), _motor3_bl.get_pwm(), _motor4_br.get_pwm());
 
   rt_exit_critical();
+}
+#endif
+
+#if PWM_RPM_TEST_ENABLE == 1
+void Mecanum_4wd::_pwm_rpm_test()
+{
+  mavlink_message_t msg;
+  int len = 0;
+  uint8_t myTxData[32];
+  
+  mavlink_msg_pwm_rpm_pack(0, 0, &msg, _motor1_fr.get_pwm(), _motor1_fr.get_rpm());
+  len = mavlink_msg_to_send_buffer( myTxData, &msg );
+  HAL_UART_Transmit(&huart1,myTxData,len,10);
 }
 #endif
