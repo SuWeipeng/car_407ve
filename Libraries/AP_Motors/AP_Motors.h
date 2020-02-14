@@ -19,7 +19,7 @@
 #define MOTORS_REDUCTION_RATIO 30.0f
 #define ENCODER_DELTA_MAX      5000.0f
 #elif MOTOR_TYPE == 2
-#define MOTORS_PWM_MIN         30
+#define MOTORS_PWM_MIN         50
 #define ENCODER_CNT_MAX        65535
 #define MOTORS_ENCODER_LINE    32.0f
 #define MOTORS_MAX_RPM         235.0f
