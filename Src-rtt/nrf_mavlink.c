@@ -7,7 +7,7 @@
 #define _ABS_(x) (((x)>0) ? x : -x)
 #define NRF_VCP_DEBUG 0
 
-//extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart1;
 
 ap_t       mav_data;
 vel_target vel;
@@ -63,6 +63,12 @@ void update_mavlink( void *parameter )
 //              HAL_UART_Transmit(&huart1,myTxData,len,10);
               
               break;
+            }
+            case MAVLINK_MSG_ID_CMD: {
+              mavlink_cmd_t packet;
+              mavlink_msg_cmd_decode( &msg_receive, &packet );
+              len = mavlink_msg_to_send_buffer( myTxData, &msg_receive );
+              HAL_UART_Transmit(&huart1,myTxData,len,10);
             }
           }
         }
