@@ -3,7 +3,7 @@
 
 #include <stm32f4xx_hal.h>
 
-#define MOTOR_TYPE             2 // 0-TT, 1-520, 2-DC130
+#define MOTOR_TYPE             1 // 0-TT, 1-520, 2-DC130
 #if MOTOR_TYPE == 0
 #define MOTORS_PWM_MIN         50
 #define ENCODER_CNT_MAX        65535

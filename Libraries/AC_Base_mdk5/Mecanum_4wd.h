@@ -10,7 +10,7 @@
 using namespace rtthread;
 #endif
 
-#define BASE_TYPE           2 // 0-Small, 1-Middle, 2-Test
+#define BASE_TYPE           1 // 0-Small, 1-Middle, 2-Test
 #if BASE_TYPE == 0
 #define HALF_BASE_LENGTH_M  0.075f
 #define HALF_BASE_WIDTH_M   0.080f
@@ -52,7 +52,7 @@ using namespace rtthread;
 #define WHEEL_DIAMETER_M    0.096f   
 #define WHEEL_RADIUS_M      (WHEEL_DIAMETER_M / 2.0f)
 #define MECANUM_VCP_DEBUG   0
-#define PWM_RPM_TEST_ENABLE 1
+#define PWM_RPM_TEST_ENABLE 0
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim3;
