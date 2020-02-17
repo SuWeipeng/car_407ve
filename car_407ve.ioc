@@ -1,7 +1,7 @@
 #MicroXplorer Configuration settings - do not modify
 FATFS.IPParameters=_CODE_PAGE,_USE_LFN,_MAX_SS
 FATFS._CODE_PAGE=936
-FATFS._MAX_SS=4096
+FATFS._MAX_SS=512
 FATFS._USE_LFN=2
 File.Version=6
 KeepUserPlacement=false
