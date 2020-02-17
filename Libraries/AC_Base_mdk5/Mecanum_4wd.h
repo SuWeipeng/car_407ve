@@ -52,6 +52,7 @@ using namespace rtthread;
 #define WHEEL_DIAMETER_M    0.096f   
 #define WHEEL_RADIUS_M      (WHEEL_DIAMETER_M / 2.0f)
 #define MECANUM_VCP_DEBUG   0
+#define PWM_RPM_TEST_ENABLE 1
 
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim3;
@@ -87,6 +88,11 @@ private:
   
 #if defined(USE_RTTHREAD)
   Semaphore _log_sem;
+#endif
+ 
+#if PWM_RPM_TEST_ENABLE == 1
+private:
+  void      _pwm_rpm_test();
 #endif
 };
 #endif /*__MECANUM_4WD_H__*/
