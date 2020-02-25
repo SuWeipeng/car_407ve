@@ -15,19 +15,19 @@ using namespace rtthread;
 #define HALF_BASE_LENGTH_M  0.075f
 #define HALF_BASE_WIDTH_M   0.080f
 #define P                   0.5f
-#define I                   5.0f
+#define I                   2.5f
 #define D                   0.0f
 #define FF                  0.0f
 #define IMAX                200.0f
-#define FLTT                20.0f
-#define FLTE                20.0f
+#define FLTT                0.0f
+#define FLTE                0.0f
 #define FLTD                0.85f
 #define DT                  0.02f
 #elif BASE_TYPE == 1
 #define HALF_BASE_LENGTH_M  0.122f
 #define HALF_BASE_WIDTH_M   0.120f
-#define P                   0.3f
-#define I                   5.0f
+#define P                   0.75f
+#define I                   3.5f
 #define D                   0.0f
 #define FF                  0.0f
 #define IMAX                200.0f
