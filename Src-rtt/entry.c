@@ -141,8 +141,7 @@ int main(void)
   
   NRF24_enableDynamicPayloads();
   NRF24_enableAckPayload();
-  
-  Log_Init();
+
   setup();
 #if defined(USE_RTTHREAD)
   rt_pin_mode(LED_PIN, PIN_MODE_OUTPUT);
@@ -150,6 +149,7 @@ int main(void)
   RTT_CREATE(log,log_thread_entry,RT_NULL,2048,RT_THREAD_PRIORITY_MAX-3,20);
 
   loop_start();
+  file_start();
   mavlink_start();
 #endif
   /* USER CODE END 2 */

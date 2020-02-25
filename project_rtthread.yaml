@@ -17,6 +17,7 @@ common:
   - Inc
   - Libraries
   - Libraries/AC_PID
+  - Libraries/AP_Buffer
   - Libraries/AP_Motors
   - Libraries/rt-thread
   - Libraries/rt-thread/board-F407xE
@@ -73,6 +74,7 @@ common:
     - Libraries/rt-thread/src
     Libraries:
     - Libraries/AC_PID
+    - Libraries/AP_Buffer
     - Libraries/AP_Motors
     - Libraries/Logger
     Middlewares:
