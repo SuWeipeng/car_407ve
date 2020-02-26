@@ -66,19 +66,6 @@ void file_log_entry (void* parameter){
       rt_kputs("f_open error\r\n");
     }
     
-    /* Check freeSpace space */
-    if(f_getfree("", &fre_clust, &pfs) != FR_OK){
-      rt_kputs("f_getfree error\r\n");
-    }
-    
-    totalSpace = (uint32_t)((pfs->n_fatent - 2) * pfs->csize * 0.5);
-    freeSpace = (uint32_t)(fre_clust * pfs->csize * 0.5);
-    
-    /* free space is less than 1kb */
-    if(freeSpace < 1){
-      rt_kputs("freeSpace error\r\n");
-    }
-    
     /* Writing*/
     read_size = buffer->read();
     if(read_size>0){
