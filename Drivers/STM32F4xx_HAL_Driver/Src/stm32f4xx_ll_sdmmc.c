@@ -1176,7 +1176,7 @@ static uint32_t SDMMC_GetCmdResp1(SDIO_TypeDef *SDIOx, uint8_t SD_CMD, uint32_t 
   
   do
   {
-    HAL_Delay(1U);
+    //HAL_Delay(1U);
     if (count-- == 0U)
     {
       return SDMMC_ERROR_TIMEOUT;
