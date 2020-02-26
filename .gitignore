@@ -2,3 +2,7 @@ MDK-ARM/*
 EWARM/*
 generate_project/*
 *.udb
+*.cproject
+.project
+language.settings.xml
+*.launch
