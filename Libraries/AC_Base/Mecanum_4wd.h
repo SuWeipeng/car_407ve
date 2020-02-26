@@ -72,7 +72,6 @@ public:
   
 #if defined(USE_RTTHREAD)
   void log_write_base();
-  void take_sem(void) { _file_sem.wait(RT_WAITING_FOREVER); }
 #endif
 
 private:
@@ -89,7 +88,6 @@ private:
   
 #if defined(USE_RTTHREAD)
   Semaphore _log_sem;
-  Semaphore _file_sem;
 #endif
  
 #if PWM_RPM_TEST_ENABLE == 1

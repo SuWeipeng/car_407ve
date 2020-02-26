@@ -55,7 +55,6 @@ void file_log_entry (void* parameter){
   uint16_t read_size;
   uint8_t* pos;
   while(1){
-    base->take_sem();
     rt_enter_critical();
     /* Mount SD Card */
     if(f_mount(&fs, "", 0) != FR_OK){
@@ -108,9 +107,7 @@ void file_log_entry (void* parameter){
     if(f_mount(NULL, "", 1) != FR_OK){
       rt_kputs("unmount error\r\n");
     }
-    
     rt_exit_critical();
-    
     rt_thread_delay(1000);
   }
 }

@@ -96,8 +96,6 @@ void Mecanum_4wd::log_write_base()
   Write_Encoder(LOG_ENC4_MSG, _motor4_br.get_delta_tick(), _motor4_br.get_tick(), _motor4_br.get_delta_min(), _motor4_br.get_delta_ms());
   
   Write_PWM(_motor1_fr.get_pwm(), _motor2_fl.get_pwm(), _motor3_bl.get_pwm(), _motor4_br.get_pwm());
-  
-  _file_sem.release();
 }
 #endif
 
