@@ -44,7 +44,7 @@ int file_start(void)
     return 2;
   }
   
-  RTT_CREATE(file,file_log_entry,RT_NULL,4096,RT_THREAD_PRIORITY_MAX-2,20);
+  RTT_CREATE(file,file_log_entry,RT_NULL,4096,2,20);
   return 0;
 }
 
