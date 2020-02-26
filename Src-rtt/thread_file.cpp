@@ -62,26 +62,24 @@ void file_log_entry (void* parameter){
     }
     
     /* Open file to write */
-    if(f_open(&fil, LOG_FILE_NAME, FA_OPEN_APPEND | FA_WRITE) != FR_OK){
-      rt_kputs("f_open error\r\n");
-    }
-    
-    /* Writing*/
-    read_size = buffer->read();
-    if(read_size>0){
-      if(read_size <= MAX_SECTOR_SIZE){
-        f_write (&fil, buffer->read_buf_addr(), read_size, &bw);
-      } else {
-        pos = (uint8_t*)buffer->read_buf_addr();
-        do{
-          f_write (&fil, pos, MAX_SECTOR_SIZE, &bw);
-          pos       += MAX_SECTOR_SIZE;
-          read_size -= MAX_SECTOR_SIZE;
-          if(read_size < MAX_SECTOR_SIZE && read_size > 0){
-            f_write (&fil, pos, read_size, &bw);
-            break;
-          }
-        }while(1);
+    if(f_open(&fil, LOG_FILE_NAME, FA_OPEN_APPEND | FA_WRITE) == FR_OK){
+      /* Writing*/
+      read_size = buffer->read();
+      if(read_size>0){
+        if(read_size <= MAX_SECTOR_SIZE){
+          f_write (&fil, buffer->read_buf_addr(), read_size, &bw);
+        } else {
+          pos = (uint8_t*)buffer->read_buf_addr();
+          do{
+            f_write (&fil, pos, MAX_SECTOR_SIZE, &bw);
+            pos       += MAX_SECTOR_SIZE;
+            read_size -= MAX_SECTOR_SIZE;
+            if(read_size < MAX_SECTOR_SIZE && read_size > 0){
+              f_write (&fil, pos, read_size, &bw);
+              break;
+            }
+          }while(1);
+        }
       }
     }
     
